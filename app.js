@@ -9,12 +9,16 @@ var mat1, mat2
             // console.log(document.getElementById(String(i) + String(j)).String(id))
             // console.log(i,j)
 
-function matrix1xmatrix2() {                
+function matrix1xmatrix2() {           
+    // generateMatrix(numOfRows.value, numOfColumns.value)
+    // generateMatrix(numOfRows2.value, numOfColumns2.value)     
     var mulmat12 = document.createElement('p')
     mulmat12.innerHTML = 'Multiplication of matrix 1 with matrix 2 is ' + math.matrix(math.multiply(mat1._data, mat2._data))
     document.getElementById('matopr').appendChild(mulmat12)
 }
-function matrix2xmatrix1() {               
+function matrix2xmatrix1() {        
+    // generateMatrix(numOfRows.value , numOfColumns.value)
+    // entries(numOfRows.value , numOfColumns.value)       
     var mulmat21 = document.createElement('p')
     mulmat21.innerHTML = 'Multiplication of matrix 2 with matrix 1 is ' + math.matrix(math.multiply(mat2._data, mat1._data))
     document.getElementById('matopr').appendChild(mulmat21)
@@ -24,6 +28,26 @@ function matrix1plusmatrix2() {
     addmat.innerHTML = 'Sum of both matrices is ' + math.matrix(math.add(mat1._data, mat2._data))
     document.getElementById('matopr').appendChild(addmat)
 }
+
+// console.log(elementAddress)
+
+// console.log(document.getElementById(11).id)
+
+// }
+// function entries(numOfRows, numOfColumns) {
+
+//     for (let i = 1; i <= numOfRows; i++) {
+//         for (let j = 1; j <= numOfColumns; j++) {
+//             var currentValue = document.getElementById("" + elementAddress[i - 1] + "" + elementAddress[j - 1] + "").value
+//             console.log(currentValue)
+//         }
+
+//     }
+//     console.log(elementArray)
+// }
+// if (document.getElementById(""))
+//     document.getElementById("").style.visibility = "hidden"
+
 function matrix1minusmatrix2() {                
     var sub12 = document.createElement('p')
     sub12.innerHTML = 'Subtraction of matrix 2 from matrix 1 is ' + math.matrix(math.subtract(mat1._data, mat2._data))
