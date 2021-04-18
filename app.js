@@ -1,13 +1,4 @@
-
-
-var row1, col1, row2, col2
 var mat1, mat2
-
-//console.log(getElementById("aa").value)
-            // console.log(document.getElementById(_id).id)
-
-            // console.log(document.getElementById(String(i) + String(j)).String(id))
-            // console.log(i,j)
 
 function matrix1xmatrix2() {           
     // generateMatrix(numOfRows.value, numOfColumns.value)
@@ -23,6 +14,7 @@ function matrix2xmatrix1() {
     mulmat21.innerHTML = 'Multiplication of matrix 2 with matrix 1 is ' + math.matrix(math.multiply(mat2._data, mat1._data))
     document.getElementById('matopr').appendChild(mulmat21)
 }
+
 function matrix1plusmatrix2() {                
     var addmat = document.createElement('p')
     addmat.innerHTML = 'Sum of both matrices is ' + math.matrix(math.add(mat1._data, mat2._data))
@@ -58,6 +50,14 @@ function matrix2minusmatrix1() {
     sub21.innerHTML = 'Subtraction of matrix 1 from matrix 2 is ' + math.matrix(math.subtract(mat2._data, mat1._data))
     document.getElementById('matopr').appendChild(sub21)
 }
+
+//console.log(getElementById("aa").value)
+// console.log(document.getElementById(_id).id)
+
+// console.log(document.getElementById(String(i) + String(j)).String(id))
+// console.log(i,j)
+
+var row1, col1, row2, col2
 
 function numberOfMatrices() {                              
     var numOfMat = document.getElementById("numOfMat").value
