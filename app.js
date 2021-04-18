@@ -88,10 +88,10 @@ function rowcol() {
             }
 
         }
-        var okbutton = document.createElement('span')
-        okbutton.innerHTML = 'Generate'
-        okbutton.setAttribute("onclick", "setmatrices()")
-        document.getElementById('vals').appendChild(okbutton)
+        var proceedButton = document.createElement('span')
+        proceedButton.innerHTML = 'Generate'
+        proceedButton.setAttribute("onclick", "setmatrices()")
+        document.getElementById('vals').appendChild(proceedButton)
 
     }
 }
@@ -145,7 +145,7 @@ function inverse() {
 }
 function addscalor() {                          
     var addsc = document.createElement('p')
-    addsc.innerHTML = '<label for="addsc">Enter scalor number to add to the matrix: </label><input type="number" name="" id="addsc"><span onclick="sumscalor()">OK</span>'
+    addsc.innerHTML = '<label for="addsc">Enter scalor number to add to the matrix: </label><input type="number" name="" id="addsc"><span onclick="sumscalor()">ADD</span>'
     document.getElementById('matopr').appendChild(addsc)
 }
 function sumscalor() {                          
@@ -155,7 +155,7 @@ function sumscalor() {
 }
 function multiplyscalor() {                     
     var mulsc = document.createElement('p')
-    mulsc.innerHTML = '<label for="mulsc">Enter scalor number to Multiply to the matrix: </label><input type="number" name="" id="mulsc"><span onclick="mulscalor()">OK</span>'
+    mulsc.innerHTML = '<label for="mulsc">Enter scalor number to Multiply to the matrix: </label><input type="number" name="" id="mulsc"><span onclick="mulscalor()">MULTIPLY</span>'
     document.getElementById('matopr').appendChild(mulsc)
 }
 function mulscalor() {                         
@@ -196,10 +196,10 @@ function rowcol1() {
             }
 
         }
-        var okbutton = document.createElement('span')
-        okbutton.innerHTML = 'OK'
-        okbutton.setAttribute("onclick", "setmatrices2()")
-        document.getElementById('vals').appendChild(okbutton)
+        var proceedButton = document.createElement('span')
+        proceedButton.innerHTML = 'Evaluate'
+        proceedButton.setAttribute("onclick", "setmatrices2()")
+        document.getElementById('vals').appendChild(proceedButton)
 
     }
 }
