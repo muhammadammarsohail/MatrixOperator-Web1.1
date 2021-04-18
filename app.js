@@ -1,36 +1,41 @@
 
-var arr1 = [];
-var arr2 = [];
-var row1, col1, row2, col2
-var mat1 , mat2
 
-function matrix1xmatrix2(){                 //function to perform Multiplication of matrix 1 with matrix 2                   
+var row1, col1, row2, col2
+var mat1, mat2
+
+//console.log(getElementById("aa").value)
+            // console.log(document.getElementById(_id).id)
+
+            // console.log(document.getElementById(String(i) + String(j)).String(id))
+            // console.log(i,j)
+
+function matrix1xmatrix2() {                
     var mulmat12 = document.createElement('p')
     mulmat12.innerHTML = 'Multiplication of matrix 1 with matrix 2 is ' + math.matrix(math.multiply(mat1._data, mat2._data))
     document.getElementById('matopr').appendChild(mulmat12)
 }
-function matrix2xmatrix1(){                 //function to perform Multiplication of matrix 2 with matrix 1                   
+function matrix2xmatrix1() {               
     var mulmat21 = document.createElement('p')
     mulmat21.innerHTML = 'Multiplication of matrix 2 with matrix 1 is ' + math.matrix(math.multiply(mat2._data, mat1._data))
     document.getElementById('matopr').appendChild(mulmat21)
 }
-function matrix1plusmatrix2(){                 //function to perform addition                   
+function matrix1plusmatrix2() {                
     var addmat = document.createElement('p')
     addmat.innerHTML = 'Sum of both matrices is ' + math.matrix(math.add(mat1._data, mat2._data))
     document.getElementById('matopr').appendChild(addmat)
 }
-function matrix1minusmatrix2(){                 //function to perform Subtraction of matrix 2 from matrix 1                   
+function matrix1minusmatrix2() {                
     var sub12 = document.createElement('p')
     sub12.innerHTML = 'Subtraction of matrix 2 from matrix 1 is ' + math.matrix(math.subtract(mat1._data, mat2._data))
     document.getElementById('matopr').appendChild(sub12)
 }
-function matrix2minusmatrix1(){                 //function to perform Subtraction of matrix 1 from matrix 2
+function matrix2minusmatrix1() {                 
     var sub21 = document.createElement('p')
     sub21.innerHTML = 'Subtraction of matrix 1 from matrix 2 is ' + math.matrix(math.subtract(mat2._data, mat1._data))
     document.getElementById('matopr').appendChild(sub21)
 }
 
-function numberOfMatrices() {                               //to select number of rows and columns
+function numberOfMatrices() {                              
     var numOfMat = document.getElementById("numOfMat").value
     if (numOfMat == 1) {
         document.getElementById("mat").innerHTML = '<label for="row1">Rows: </label><input type="number" name="" id="row1"><br><label for="col1">Columns: </label><input type="number" name="" id="col1"><button onclick="rowcol()">Generate</button>'
@@ -42,7 +47,7 @@ function numberOfMatrices() {                               //to select number o
         document.getElementById("mat").innerHTML = 'Error: Number of matrices can be either 1 or 2'
     }
 }
-function rowcol() {                                 //checking the number of rows and columns
+function rowcol() {                               
     row1 = document.getElementById("row1").value
     col1 = document.getElementById("col1").value
     if (row1 < 2 || col1 < 2 || row1 > 5 || col1 > 5) {
@@ -67,14 +72,14 @@ function rowcol() {                                 //checking the number of row
     }
 }
 
-function setmatrices() {                                        //saving elements of matrix in array and showing operations
+function setmatrices() {                                       
     for (let k = 1; k <= row1; k++) {
         for (let l = 1; l <= col1; l++) {
             console.log(document.getElementById('row' + k + 'col' + l + 'val').value)
-            arr1.push(parseInt(document.getElementById('row' + k + 'col' + l + 'val').value))
+            matrix1.push(parseInt(document.getElementById('row' + k + 'col' + l + 'val').value))
         }
     }
-    var tempmat = math.matrix(arr1)
+    var tempmat = math.matrix(matrix1)
     mat1 = math.reshape(tempmat, [row1, col1])
     console.log(mat1)
 
@@ -84,7 +89,7 @@ function setmatrices() {                                        //saving element
     document.getElementById('matopr').appendChild(options)
 }
 
-function deter() {                                  //function to find determinent
+function deter() {                                  
     if (row1 != col1) {
         var error1 = document.createElement('p')
         error1.innerHTML = "Error: Matrix must be square to find determinent"
@@ -96,13 +101,13 @@ function deter() {                                  //function to find determine
         document.getElementById('matopr').appendChild(deterResult)
     }
 }
-function transpose() {                              //function to find transpose
+function transpose() {                              
     var transResult = document.createElement('p')
     var transpose1 = math.transpose(mat1._data)
     transResult.innerHTML = "Transpose of given Matrix is " + math.matrix(transpose1)
     document.getElementById('matopr').appendChild(transResult)
 }
-function inverse() {                                //function to find inverse
+function inverse() {                                
     if (row1 != col1) {
         var error1 = document.createElement('p')
         error1.innerHTML = "Error: Matrix must be square to find inverse"
@@ -114,22 +119,22 @@ function inverse() {                                //function to find inverse
         document.getElementById('matopr').appendChild(inverseResult)
     }
 }
-function addscalor() {                          //function to get scalor to add to matrix
+function addscalor() {                          
     var addsc = document.createElement('p')
     addsc.innerHTML = '<label for="addsc">Enter scalor number to add to the matrix: </label><input type="number" name="" id="addsc"><span onclick="sumscalor()">OK</span>'
     document.getElementById('matopr').appendChild(addsc)
 }
-function sumscalor() {                          //performing addition
+function sumscalor() {                          
     var sumsc = document.createElement('p')
     sumsc.innerHTML = 'Sum is ' + math.matrix(math.add(mat1._data, parseInt(document.getElementById("addsc").value)))
     document.getElementById('matopr').appendChild(sumsc)
 }
-function multiplyscalor() {                     //function to get scalor to multiply to matrix
+function multiplyscalor() {                     
     var mulsc = document.createElement('p')
     mulsc.innerHTML = '<label for="mulsc">Enter scalor number to Multiply to the matrix: </label><input type="number" name="" id="mulsc"><span onclick="mulscalor()">OK</span>'
     document.getElementById('matopr').appendChild(mulsc)
 }
-function mulscalor() {                          //performing multiplication
+function mulscalor() {                         
     var mulsc = document.createElement('p')
     mulsc.innerHTML = 'Product is ' + math.matrix(math.multiply(mat1._data, parseInt(document.getElementById("mulsc").value)))
     document.getElementById('matopr').appendChild(mulsc)
@@ -138,7 +143,7 @@ function mulscalor() {                          //performing multiplication
 
 //For 2 matrices
 
-function rowcol1() {                                    //for getting rows and columns of 2 matrices
+function rowcol1() {                                   
     row1 = document.getElementById("row1").value
     col1 = document.getElementById("col1").value
     row2 = document.getElementById("row2").value
@@ -147,7 +152,7 @@ function rowcol1() {                                    //for getting rows and c
         // document.getElementById("rowcol").innerHTML = 'rows and colums cannot be greater than 5 or less than 2'
         alert("Enter 2 to 5 rows and columns")
     } else {
-        for (let i = 1; i <= row1; i++) {                     //for first matrix
+        for (let i = 1; i <= row1; i++) {                    
             for (let j = 1; j <= col1; j++) {
 
                 var node = document.createElement("p");
@@ -157,7 +162,7 @@ function rowcol1() {                                    //for getting rows and c
             }
 
         }
-        for (let i = 1; i <= row2; i++) {                       //for second matrix
+        for (let i = 1; i <= row2; i++) {                      
             for (let j = 1; j <= col2; j++) {
 
                 var node = document.createElement("p");
@@ -174,28 +179,32 @@ function rowcol1() {                                    //for getting rows and c
 
     }
 }
-
+var matrix1 = [];
+var matrix2 = [];
 //for taking elements of matrices in an array and converting them to matrices
 function setmatrices2() {
     for (let k = 1; k <= row1; k++) {
         for (let l = 1; l <= col1; l++) {
             console.log(document.getElementById('row' + k + 'col' + l + 'valmat1').value)
-            arr1.push(parseInt(document.getElementById('row' + k + 'col' + l + 'valmat1').value))
+            matrix1.push(parseInt(document.getElementById('row' + k + 'col' + l + 'valmat1').value))
         }
     }
     for (let k = 1; k <= row2; k++) {
         for (let l = 1; l <= col2; l++) {
             console.log(document.getElementById('row' + k + 'col' + l + 'valmat2').value)
-            arr2.push(parseInt(document.getElementById('row' + k + 'col' + l + 'valmat2').value))
+            matrix2.push(parseInt(document.getElementById('row' + k + 'col' + l + 'valmat2').value))
         }
     }
-    var tempmat1 = math.matrix(arr1)
-    var tempmat2 = math.matrix(arr2)
+
+
+
+    var tempmat1 = math.matrix(matrix1)
+    var tempmat2 = math.matrix(matrix2)
     mat1 = math.reshape(tempmat1, [row1, col1])
     mat2 = math.reshape(tempmat2, [row2, col2])
-    
 
-    document.getElementById('matopr').innerHTML = 'Your matrix first matrix is ' + mat1 + ' and second matrix is '+ mat2 +'<br><br>'
+
+    document.getElementById('matopr').innerHTML = 'Your matrix first matrix is ' + mat1 + ' and second matrix is ' + mat2 + '<br><br>'
     var options = document.createElement('p')
     options.innerHTML = '<span onclick="matrix1xmatrix2()">Multiply the first matrix with the second</span><br><span onclick="matrix2xmatrix1()">Multiply the second matrix with first</span><br><span onclick="matrix1plusmatrix2()">Add both matrices</span><br><span onclick="matrix2minusmatrix1()">Subtract the first matrix from second</span><br><span onclick="matrix1minusmatrix2()">Subtract the second matrix from the first</span><br>'
     document.getElementById('matopr').appendChild(options)
